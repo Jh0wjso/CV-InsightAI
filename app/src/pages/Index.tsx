@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Upload, FileText, Send, Bot, User, Sparkles, X } from "lucide-react";
+import { uploadPDF, analyzeResume } from "../services/api";
 
 const MOCK_ANALYSIS = `## 📋 Análise do Currículo
 
@@ -57,35 +58,64 @@ const Index = () => {
     setFile(selected);
   };
 
-  const handleAnalyze = () => {
-    if (!isPdf) return;
+  const handleAnalyze = async () => {
+    if (!isPdf || !file) return;
     setScreen("chat");
     setMessages([]);
     setIsTyping(true);
-    setTimeout(() => {
-      setMessages([{ role: "assistant", content: MOCK_ANALYSIS }]);
+
+    try {
+      const text = await uploadPDF(file);
+      const prompt = `You are a professional resume reviewer and career coach.
+
+Your job is to analyze resumes and give clear, practical, and structured feedback.
+
+Rules:
+- Be objective and constructive
+- Focus on improving employability
+- Avoid generic advice
+- Give actionable suggestions
+- Respond in clean markdown format
+- Be concise but thorough
+
+Analyze the following resume and provide:
+
+1. Overall Score (0–100)
+2. Strengths (bullet points)
+3. Weaknesses (bullet points)
+4. Specific Improvement Suggestions
+5. ATS Optimization Tips
+6. Rewritten Summary Section (improved version)
+
+Resume:
+"""
+${text}
+"""`;
+      
+      const analysis = await analyzeResume(prompt);
+      setMessages([{ role: "assistant", content: analysis }]);
+    } catch (error) {
+      setMessages([{ role: "assistant", content: "Erro ao analisar o currículo. Tente novamente." }]);
+    } finally {
       setIsTyping(false);
-    }, 2000);
+    }
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
     const userMsg: Message = { role: "user", content: input };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setIsTyping(true);
 
-    const lower = input.toLowerCase();
-    let response = MOCK_RESPONSES.default;
-    if (lower.includes("experiencia") || lower.includes("experiência"))
-      response = MOCK_RESPONSES.experiencia;
-    if (lower.includes("formatação") || lower.includes("formato") || lower.includes("formatacao"))
-      response = MOCK_RESPONSES.formatacao;
-
-    setTimeout(() => {
+    try {
+      const response = await analyzeResume(input);
       setMessages((prev) => [...prev, { role: "assistant", content: response }]);
+    } catch (error) {
+      setMessages((prev) => [...prev, { role: "assistant", content: "Erro ao processar sua pergunta." }]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleBack = () => {
