@@ -1,0 +1,26 @@
+export const translations = {
+  en: {
+    title: "CV Analyzer",
+    subtitle: "Upload your resume and get an intelligent AI analysis",
+    uploadText: "Upload CV",
+    uploadHint: "Click to select a PDF",
+    validPdf: "Valid PDF ✓",
+    invalidPdf: "⚠ Invalid format — upload a PDF",
+    analyzeButton: "Analyze Resume",
+    analyzingButton: "Analyzing...",
+    newAnalysis: "New Analysis",
+    errorMessage: "Error analyzing resume. Please try again.",
+  },
+  pt: {
+    title: "CV Analyzer",
+    subtitle: "Envie seu currículo e receba uma análise inteligente com IA",
+    uploadText: "Upload CV",
+    uploadHint: "Clique para selecionar um PDF",
+    validPdf: "PDF válido ✓",
+    invalidPdf: "⚠ Formato inválido — envie um PDF",
+    analyzeButton: "Analisar Currículo",
+    analyzingButton: "Analisando...",
+    newAnalysis: "Nova Análise",
+    errorMessage: "Erro ao analisar o currículo. Tente novamente.",
+  },
+};

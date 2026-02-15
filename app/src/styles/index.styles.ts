@@ -1,0 +1,45 @@
+export const styles = {
+  container: {
+    main: "flex min-h-screen items-center justify-center p-4",
+    analysis: "min-h-screen bg-background p-8",
+  },
+  content: {
+    wrapper: "w-full max-w-md space-y-8 text-center",
+    analysisWrapper: "max-w-5xl mx-auto space-y-6",
+  },
+  header: {
+    topBar: "fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-b border-border px-6 py-3 flex justify-end items-center gap-2 z-50",
+    langButton: "px-3 py-1.5 rounded-lg text-sm font-medium transition-colors",
+    langButtonActive: "bg-primary text-primary-foreground",
+    langButtonInactive: "bg-muted text-muted-foreground hover:bg-muted/80",
+    iconContainer: "mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20",
+    icon: "h-8 w-8 text-primary",
+    title: "text-3xl font-bold tracking-tight",
+    subtitle: "text-muted-foreground text-sm",
+    wrapper: "space-y-2",
+  },
+  upload: {
+    dropzone: "group cursor-pointer rounded-2xl border-2 border-dashed border-border p-8 transition-all hover:border-primary/50 hover:bg-card",
+    fileInput: "hidden",
+    fileDisplay: "flex items-center justify-center gap-3",
+    fileIcon: "h-8 w-8 text-primary",
+    fileInfo: "text-left",
+    fileName: "font-medium text-sm",
+    fileStatus: "text-muted-foreground text-xs",
+    removeButton: "ml-2 rounded-full p-1 hover:bg-muted",
+    removeIcon: "h-4 w-4 text-muted-foreground",
+    emptyState: "space-y-3",
+    uploadIcon: "mx-auto h-10 w-10 text-muted-foreground transition-colors group-hover:text-primary",
+    uploadText: "font-medium text-sm",
+    uploadHint: "text-muted-foreground text-xs",
+  },
+  button: {
+    primary: "w-full rounded-xl py-3 font-semibold text-sm transition-all disabled:cursor-not-allowed disabled:opacity-30",
+    back: "flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm mb-6",
+    backIcon: "h-4 w-4",
+  },
+  analysis: {
+    card: "bg-card border border-border rounded-2xl p-8",
+    content: "prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h1:mb-8 prose-h1:mt-0 prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-6 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-4 prose-p:text-base prose-p:leading-relaxed prose-p:my-4 prose-ul:my-6 prose-ul:space-y-2 prose-li:text-base prose-li:leading-relaxed prose-strong:text-primary prose-strong:font-semibold prose-hr:my-8 prose-hr:border-border",
+  },
+};
