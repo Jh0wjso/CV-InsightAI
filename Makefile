@@ -1,48 +1,48 @@
 .PHONY: help install install-app install-server start start-app start-server build clean
 
 help:
-	@echo "Comandos disponíveis:"
-	@echo "  make install       - Instala dependências do app e server"
-	@echo "  make install-app   - Instala dependências do app"
-	@echo "  make install-server - Instala dependências do server"
-	@echo "  make start         - Inicia app e server"
-	@echo "  make start-app     - Inicia apenas o app"
-	@echo "  make start-server  - Inicia apenas o server"
-	@echo "  make build         - Build do app para produção"
-	@echo "  make clean         - Remove node_modules e arquivos de build"
+	@echo "Available commands:"
+	@echo "  make install       - Install app and server dependencies"
+	@echo "  make install-app   - Install app dependencies only"
+	@echo "  make install-server - Install server dependencies only"
+	@echo "  make start         - Start app and server"
+	@echo "  make start-app     - Start app only"
+	@echo "  make start-server  - Start server only"
+	@echo "  make build         - Build app for production"
+	@echo "  make clean         - Remove node_modules and build files"
 
 kill-ports:
-	@echo "Matando processos nas portas 8080 e 3001..."
+	@echo "Killing processes on ports 8080 and 3001..."
 	lsof -t -i:8080 -sTCP:LISTEN | xargs kill -9 || true
 	lsof -t -i:3001 -sTCP:LISTEN | xargs kill -9 || true
 
 install: install-app install-server
 
 install-app:
-	@echo "Instalando dependências do app..."
+	@echo "Installing app dependencies..."
 	cd app && npm install
 
 install-server:
-	@echo "Instalando dependências do server..."
+	@echo "Installing server dependencies..."
 	cd server && npm install
 
 start: kill-ports
-	@echo "Iniciando app e server..."
+	@echo "Starting app and server..."
 	@make -j2 start-app start-server
 
 start-app:
-	@echo "Iniciando app..."
+	@echo "Starting app..."
 	cd app && npm run dev
 
 start-server:
-	@echo "Iniciando server..."
+	@echo "Starting server..."
 	cd server && npm start
 
 build:
-	@echo "Build do app..."
+	@echo "Building app..."
 	cd app && npm run build
 
 clean:
-	@echo "Limpando arquivos..."
+	@echo "Cleaning files..."
 	rm -rf app/node_modules app/dist
 	rm -rf server/node_modules
