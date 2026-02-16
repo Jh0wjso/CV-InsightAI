@@ -1,5 +1,7 @@
+import { API_ENDPOINTS } from "@/lib/endpoints.api";
+
 export async function analyzeResume(text: string): Promise<string> {
-  const res = await fetch("http://localhost:3001/analyze", {
+  const res = await fetch(API_ENDPOINTS.analyze, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +21,7 @@ export async function uploadPDF(file: File): Promise<string> {
   const formData = new FormData();
   formData.append("resume", file);
 
-  const res = await fetch("http://localhost:3001/upload", {
+  const res = await fetch(API_ENDPOINTS.upload, {
     method: "POST",
     body: formData,
   });
