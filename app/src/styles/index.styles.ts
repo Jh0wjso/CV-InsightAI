@@ -9,7 +9,7 @@ export const styles = {
   },
   header: {
     topBar: "fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-b border-border px-6 py-3 flex justify-end items-center gap-2 z-50",
-    langButton: "px-3 py-1.5 rounded-lg text-sm font-medium transition-colors",
+    langButton: "flex gap-3 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors",
     langButtonActive: "bg-primary text-primary-foreground",
     langButtonInactive: "bg-muted text-muted-foreground hover:bg-muted/80",
     iconContainer: "mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20",
@@ -40,6 +40,6 @@ export const styles = {
   },
   analysis: {
     card: "bg-card border border-border rounded-2xl p-8",
-    content: "prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h1:mb-8 prose-h1:mt-0 prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-6 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-4 prose-p:text-base prose-p:leading-relaxed prose-p:my-4 prose-ul:my-6 prose-ul:space-y-2 prose-li:text-base prose-li:leading-relaxed prose-strong:text-primary prose-strong:font-semibold prose-hr:my-8 prose-hr:border-border",
+    content: "prose prose-invert prose-lg max-w-none [&>*]:text-foreground prose-headings:font-bold prose-headings:text-foreground prose-h1:text-3xl prose-h1:mb-8 prose-h1:mt-0 prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-6 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-4 prose-p:text-base prose-p:leading-relaxed prose-p:my-4 prose-ul:my-6 prose-ul:space-y-2 prose-li:text-base prose-li:leading-relaxed prose-strong:text-primary prose-strong:font-semibold prose-hr:my-8 prose-hr:border-border prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:rounded",
   },
 };

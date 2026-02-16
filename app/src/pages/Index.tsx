@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Upload, FileText, Sparkles, X, ArrowLeft } from "lucide-react";
 import { uploadPDF, analyzeResume } from "../services/api";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { createResumeAnalysisPrompt } from "../config/prompts";
 import { translations } from "../config/translations";
 import { styles } from "../styles/index.styles";
@@ -57,7 +58,7 @@ const Index = () => {
           
           <div className={styles.analysis.card}>
             <div className={styles.analysis.content}>
-              <ReactMarkdown>{analysis}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis}</ReactMarkdown>
             </div>
           </div>
         </div>
@@ -72,13 +73,13 @@ const Index = () => {
           onClick={() => setLanguage('en')}
           className={`${styles.header.langButton} ${language === 'en' ? styles.header.langButtonActive : styles.header.langButtonInactive}`}
         >
-          EN
+          <img src="/US-UK_Flag.png" width={25} /> EN
         </button>
         <button
           onClick={() => setLanguage('pt')}
           className={`${styles.header.langButton} ${language === 'pt' ? styles.header.langButtonActive : styles.header.langButtonInactive}`}
         >
-          PT
+          <img src="/br_pt.png" width={25} /> PT
         </button>
       </header>
       
