@@ -1,73 +1,155 @@
-# Welcome to your Lovable project
+# CV-InsightAI - Frontend
 
-## Project info
+React interface for intelligent resume analysis with AI.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🛠️ Tech Stack
 
-## How can I edit this code?
+- **React 18** - UI Library
+- **TypeScript** - Static typing
+- **Vite** - Build tool and dev server
+- **TailwindCSS** - Styling
+- **Shadcn/ui** - UI Components
+- **React Router** - Routing
+- **TanStack Query** - Async state management
+- **React Markdown** - Analysis rendering
+- **Lucide React** - Icons
 
-There are several ways of editing your application.
+## 📁 Project Structure
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+app/
+├── src/
+│   ├── components/
+│   │   ├── ui/              # Shadcn/ui components
+│   │   └── NavLink.tsx      # Navigation component
+│   ├── config/
+│   │   ├── prompts.ts       # AI prompts
+│   │   └── translations.ts  # EN/PT translations
+│   ├── hooks/               # Custom hooks
+│   ├── lib/
+│   │   ├── endpoints.api.ts # API endpoints
+│   │   └── utils.ts         # Utilities
+│   ├── pages/
+│   │   ├── Index.tsx        # Main page
+│   │   └── NotFound.tsx     # 404 page
+│   ├── services/
+│   │   └── api.ts           # API services
+│   ├── styles/
+│   │   └── index.styles.ts  # Centralized styles
+│   └── test/                # Tests
+├── public/                  # Static assets
+└── .env.example             # Environment variables
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Installation
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm install
+```
 
-**Use GitHub Codespaces**
+## ⚙️ Configuration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Copy the example file and configure variables:
 
-## What technologies are used for this project?
+```bash
+cp .env.example .env
+```
 
-This project is built with:
+Edit `.env`:
+```env
+VITE_API_URL=http://localhost:3001
+VITE_HUGGING_FACE_ACCESS_TOKEN=your_token_here
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🏃 Running
 
-## How can I deploy this project?
+### Development Mode
+```bash
+npm run dev
+```
+Access: http://localhost:8080
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Production Build
+```bash
+npm run build
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Build Preview
+```bash
+npm run preview
+```
 
-Yes, you can!
+## 🧪 Testing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+# Run tests
+npm test
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Watch mode
+npm run test:watch
+```
+
+## 🎨 Features
+
+- ✅ PDF upload
+- ✅ AI-powered resume analysis
+- ✅ Bilingual support (EN/PT)
+- ✅ Responsive interface
+- ✅ Markdown rendering
+- ✅ Loading visual feedback
+- ✅ File validation
+
+## 📦 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run build:dev` | Development mode build |
+| `npm run preview` | Build preview |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run tests |
+| `npm run test:watch` | Tests in watch mode |
+
+## 🌐 Internationalization
+
+The app supports two languages:
+- 🇺🇸 English (EN)
+- 🇧🇷 Portuguese (PT)
+
+Translations are in `src/config/translations.ts`.
+
+## 🔌 Backend Integration
+
+Communication with backend is done through:
+- `uploadPDF()` - PDF file upload
+- `analyzeResume()` - Resume analysis
+
+Endpoints configured in `src/lib/endpoints.api.ts`.
+
+## 🎯 Main Components
+
+### Index.tsx
+Main page with:
+- Language selector
+- PDF upload
+- Analysis button
+- Results display
+
+### api.ts
+Communication services:
+- File upload
+- Analysis requests
+
+### translations.ts
+i18n system with multi-language support.
+
+## 🔧 Vite Configuration
+
+- Port: 8080
+- HMR overlay: disabled
+- Alias: `@` → `./src`
+
+## 📝 License
+
+MIT
